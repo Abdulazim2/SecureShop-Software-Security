@@ -24,15 +24,19 @@ The main assets requiring protection are:
 ## 3. Threat Actors
 
 ### 3.1 Unauthenticated Attacker
+
 An external user attempting to access protected resources or exploit input validation weaknesses without logging in.
 
 ### 3.2 Malicious Registered User
+
 A legitimate customer attempting to manipulate cart operations, access another session's data, or abuse application business logic.
 
 ### 3.3 Automated Attacker
+
 A bot or script attempting repeated login or registration requests, brute-force attacks, or excessive requests.
 
 ### 3.4 Malicious Insider
+
 A person with legitimate access who may misuse application privileges or modify sensitive data.
 
 ## 4. Threat Analysis Using STRIDE
@@ -44,7 +48,7 @@ A person with legitimate access who may misuse application privileges or modify 
 | Repudiation | Denying performed account or cart actions | Difficulty investigating incidents |
 | Information Disclosure | Accessing another user's cart or sensitive data | Privacy violation |
 | Denial of Service | Sending excessive requests | Service unavailability |
-| Elevation of Privilege | Obtaining unauthorized administrative access | Full application compromise |
+| Elevation of Privilege | Obtaining unauthorized administrative access | Unauthorized privileged operations |
 
 ## 5. Identified Attack Scenarios and Mitigations
 
@@ -56,16 +60,3 @@ An attacker submits malicious SQL input through search or other user-controlled 
 
 **Potential Impact:**
 
-Unauthorized data access, modification, or deletion.
-
-**Mitigation:**
-
-- Use SQLAlchemy ORM queries.
-- Validate user inputs.
-- Avoid unsafe dynamic SQL construction.
-
-**Implementation Status:** Implemented and manually tested using SQL injection payloads.
-
-### 5.2 Insecure Direct Object Reference (IDOR)
-
-**Attack Scenario:

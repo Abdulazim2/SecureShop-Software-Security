@@ -70,26 +70,20 @@ admin' --
 
 **Expected Result:** Malicious input must not expose unauthorized product data or modify database tables.
 
-**Observed Result:** The requests returned empty search results, and the products table remained available.
+**Observed Result:**
+- The tested requests returned empty search results.
+- The products table remained available after testing.
+- No unauthorized product data was returned.
 
 **Status:** Passed.
 
 ### 4.2 Price Manipulation Testing
 
-**Test:** Submit a cart request containing a fake client-side price of 0.01 for a product whose actual database price is 25.50.
+**Test:** Submit a cart request containing a fake client-side price of `0.01` for a product whose actual database price is `25.50`.
 
 **Expected Result:** The server must ignore the submitted price and use the database value.
 
 **Observed Result:**
-
 - Database unit price: 25.50
 - Returned unit price: 25.50
-- Calculated line total: 25.50
-
-**Status:** Passed.
-
-### 4.3 IDOR Testing
-
-**Test:** Two separate clients were used to test cart ownership validation.
-
-- Client A added a product to
+- Quantity
